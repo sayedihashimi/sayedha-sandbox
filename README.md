@@ -41,7 +41,10 @@ Create a `sandbox.wsb` file like the following and save it anywhere on your mach
 
 ## ✅ Step 3: Launch the Sandbox
 
-Double-click the `.wsb` file. Windows Sandbox will start and run `install-tools.bat` to install and configure the tools.
+Double-click the `.wsb` file. 
+
+After the sandbox is started open a command prompt to run `install-tools.bat`.
+You'll need to close and re-open VS Code after everything is installed to get .NET working.
 
 You’ll see the console window stay open so you can monitor progress.
 
