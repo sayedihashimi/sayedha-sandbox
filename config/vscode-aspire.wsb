@@ -1,0 +1,13 @@
+<Configuration>
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>C:\data\mycode\sayedha-sandbox\mapped-folder</HostFolder>
+      <SandboxFolder>C:\setup</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  <LogonCommand>
+    <Command>powershell -ExecutionPolicy Bypass -File C:\setup\PatchSandbox.ps1</Command>
+    <!-- <Command>cmd.exe /k c:\setup\install-tools.bat</Command> -->
+  </LogonCommand>
+</Configuration>
