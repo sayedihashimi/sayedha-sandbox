@@ -4,7 +4,7 @@ You have two ways to set up the development environment in Windows Sandbox. Choo
 
 ---
 
-## 🟢 Option 1 – Easiest: Use `vscode-aspire.wsb`
+## 🟢 Option 1 – Easiest: Use `start-vscode-aspire.bat`
 
 This is the **simplest method**.
 
@@ -12,17 +12,8 @@ This is the **simplest method**.
 - After the Sandbox starts, **wait a few minutes**. A command prompt will eventually appear asking you to confirm installation of the components.
 - No setup required on the host machine.
 
-Open the `vscode-aspire.wsb` and update the `HostFolder` path to match the full path on your machine:
-
-The default value for `HostFolder` is.
-
-```xml
-<HostFolder>C:\data\mycode\sayedha-sandbox\mapped-folder</HostFolder>
-```
-
-The `HostFolder` path **must be absolute** — relative paths are not supported by `.wsb` files.
-
-Double click `vscode-aspire.wsb` to create the sandbox. When it starts a PowerShell window will appear,
+To start, double click on `start-vscode-aspire.bat` in the root of the repo.
+When it starts a PowerShell window will appear,
 press Enter when prompted. After a few minutes you will need to confirm the installation components.
 
 ### ⚠️ Note:
