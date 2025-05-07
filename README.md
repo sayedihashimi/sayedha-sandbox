@@ -1,24 +1,39 @@
 # Windows Sandbox Dev Environment Setup
 
-This setup uses `download-tools.ps1` on the host to prepare installer files, and `install-tools.bat` inside Windows Sandbox to install and configure tools like Git, VS Code, .NET SDK, PowerShell 7, and ConEmu.
+You have two ways to set up the development environment in Windows Sandbox. Choose the one that best fits your needs:
 
 ---
 
-## ✅ Step 1: Download Tools on the Host
+## 🟢 Option 1 – Easiest: Use `vscode-aspire.wsb`
 
-Run the following PowerShell script **on your host machine** to download all necessary installers into the mapped folder:
+For the **simplest setup**, double-click the `vscode-aspire.wsb` file.
+
+- This uses the official [.NET installer guide](https://dotnet.microsoft.com/en-us/learn/dotnet/hello-world-tutorial/install) and installs components using `dotnet.winget`.
+- After the Sandbox starts, **wait a few minutes**. A command prompt will eventually appear asking you to confirm installation of the components.
+- No setup required on the host machine.
+
+### ⚠️ Note:
+This option downloads files **every time**, so it may be slower if you run it often.
+
+---
+
+## ⚡ Option 2 – Faster for Reuse: Use `vscode-aspire-install-from-host.wsb`
+
+This method downloads all tools once on the host and reuses them each time you launch Sandbox. Recommended if you'll run it multiple times.
+
+### ✅ Step 1: Download Tools on the Host
+
+Run this PowerShell script to download all necessary installers into the mapped folder:
 
 ```powershell
 .\download-tools.ps1
 ```
 
-> Make sure PowerShell 7 is installed and execution policy allows scripts. You can run this in an elevated PowerShell prompt if needed.
+> Run this in PowerShell 7 with appropriate execution policy (`Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` if needed).
 
----
+### ✅ Step 2: Use `vscode-aspire-install-from-host.wsb`
 
-## ✅ Step 2: Create a `.wsb` Configuration File
-
-Create a `sandbox.wsb` file like the following and save it anywhere on your machine:
+This `.wsb` file maps the host folder and auto-runs the installer script:
 
 ```xml
 <Configuration>
@@ -35,30 +50,21 @@ Create a `sandbox.wsb` file like the following and save it anywhere on your mach
 </Configuration>
 ```
 
-> This maps the folder with your installers and runs the install script automatically when Sandbox starts.
-
----
-
-## ✅ Step 3: Launch the Sandbox
-
-Double-click the `.wsb` file. 
-
-After the sandbox is started open a command prompt to run `install-tools.bat`.
-You'll need to close and re-open VS Code after everything is installed to get .NET working.
-
-You’ll see the console window stay open so you can monitor progress.
+Double-click this `.wsb` to launch the sandbox. The command prompt will show installation progress as tools are installed from local files.
 
 ---
 
 ## 📁 Files Overview
 
-- `download-tools.ps1`: Downloads all required installers to the mapped folder.
-- `install-tools.bat`: Runs in Sandbox to install tools and configure the environment.
-- `mapped-folder\PatchSandbox.ps1`: Patches the sandbox to workaround slow install times.
+- `download-tools.ps1`: Downloads installers to the mapped folder.
+- `install-tools.bat`: Runs in Sandbox to install tools and apply configuration.
+- `vscode-aspire.wsb`: Easiest option, uses Winget to install in Sandbox.
+- `vscode-aspire-install-from-host.wsb`: Fast reusable option, uses pre-downloaded installers.
+
 ---
 
 ## 🔁 Reuse
 
-Rerun `download-tools.ps1` anytime to update tools. The Sandbox remains disposable, so you always start clean.
+Run `download-tools.ps1` again anytime to refresh the tools on your host.
 
----
+Each time you start Sandbox with the "from host" config, the setup runs fast and offline using the cached files.
