@@ -7,6 +7,7 @@
     </MappedFolder>
   </MappedFolders>
   <LogonCommand>
-    <Command>cmd.exe /c start powershell -ExecutionPolicy Bypass -NoExit -File C:\setup\install-with-winget.ps1</Command>
+    <Command>cmd.exe /c start cmd.exe /k C:\setup\install-tools-from-host.bat</Command>
+    <!-- <Command>powershell -ExecutionPolicy Bypass -File C:\setup\PatchSandbox.ps1</Command> -->
   </LogonCommand>
 </Configuration>

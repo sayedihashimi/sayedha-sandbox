@@ -3,18 +3,20 @@ setlocal
 
 cd /d "%~dp0"
 
+rem patch the sandbox to prevent long install times more info at 
+powershell -ExecutionPolicy Bypass -File C:\setup\PatchSandbox.ps1
+
 rem echo Installing App Installer (winget)...
 rem powershell -Command "Add-AppxPackage -Path .\AppInstaller.msixbundle"
 
 echo Installing Git...
 start /wait git.exe /VERYSILENT /NORESTART
 
-echo Installing Visual Studio Code...
-start /wait vscode.exe /VERYSILENT /NORESTART
-
 echo Installing .NET SDK 9.0.203...
 start /wait dotnet9.exe /install /quiet /norestart
-rem start /wait dotnet9.exe /install /norestart
+
+echo Installing Visual Studio Code...
+start /wait vscode.exe /VERYSILENT /NORESTART /MERGETASKS=!runcode
 
 echo Installing PowerShell 7...
 start /wait msiexec /i pwsh.msi /qn

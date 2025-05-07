@@ -6,11 +6,24 @@ You have two ways to set up the development environment in Windows Sandbox. Choo
 
 ## 🟢 Option 1 – Easiest: Use `vscode-aspire.wsb`
 
-For the **simplest setup**, double-click the `vscode-aspire.wsb` file.
+This is the **simplest method**.
 
 - This uses the official [.NET installer guide](https://dotnet.microsoft.com/en-us/learn/dotnet/hello-world-tutorial/install) and installs components using `dotnet.winget`.
 - After the Sandbox starts, **wait a few minutes**. A command prompt will eventually appear asking you to confirm installation of the components.
 - No setup required on the host machine.
+
+Open the `vscode-aspire.wsb` and update the `HostFolder` path to match the full path on your machine:
+
+The default value for `HostFolder` is.
+
+```xml
+<HostFolder>C:\data\mycode\sayedha-sandbox\mapped-folder</HostFolder>
+```
+
+The `HostFolder` path **must be absolute** — relative paths are not supported by `.wsb` files.
+
+Double click `vscode-aspire.wsb` to create the sandbox. When it starts a PowerShell window will appear,
+press Enter when prompted. After a few minutes you will need to confirm the installation components.
 
 ### ⚠️ Note:
 This option downloads files **every time**, so it may be slower if you run it often.
@@ -31,26 +44,21 @@ Run this PowerShell script to download all necessary installers into the mapped 
 
 > Run this in PowerShell 7 with appropriate execution policy (`Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` if needed).
 
-### ✅ Step 2: Use `vscode-aspire-install-from-host.wsb`
+### ✅ Step 2: Update the `.wsb` Configuration
 
-This `.wsb` file maps the host folder and auto-runs the installer script:
+Open the `.wsb` file you're using (e.g., `vscode-aspire-install-from-host.wsb`) and update the `HostFolder` path to match the full path on your machine:
+
+The default value for `HostFolder` is.
 
 ```xml
-<Configuration>
-  <MappedFolders>
-    <MappedFolder>
-      <HostFolder>C:\data\mycode\sayedha-sandbox\mapped-folder</HostFolder>
-      <SandboxFolder>C:\setup</SandboxFolder>
-      <ReadOnly>true</ReadOnly>
-    </MappedFolder>
-  </MappedFolders>
-  <LogonCommand>
-    <Command>cmd.exe /k C:\setup\install-tools.bat</Command>
-  </LogonCommand>
-</Configuration>
+<HostFolder>C:\data\mycode\sayedha-sandbox\mapped-folder</HostFolder>
 ```
 
-Double-click this `.wsb` to launch the sandbox. The command prompt will show installation progress as tools are installed from local files.
+The `HostFolder` path **must be absolute** — relative paths are not supported by `.wsb` files.
+
+### ✅ Step 3: Launch the Sandbox
+
+Double-click the `.wsb` file. The command prompt will show installation progress as tools are installed from local files.
 
 ---
 
