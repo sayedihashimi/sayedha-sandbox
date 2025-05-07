@@ -3,11 +3,6 @@ setlocal
 
 cd /d "%~dp0"
 
-rem cd /d C:\setup
-
-rem rem patch the sandbox to prevent long install times more info at https://github.com/microsoft/Windows-Sandbox/issues/68#issuecomment-2684406010
-rem powershell -ExecutionPolicy Bypass -File C:\setup\PatchSandbox.ps1
-
 rem echo Installing App Installer (winget)...
 rem powershell -Command "Add-AppxPackage -Path .\AppInstaller.msixbundle"
 

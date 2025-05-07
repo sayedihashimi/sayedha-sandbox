@@ -1,5 +1,5 @@
-# download-tools.ps1
-$dest = "C:\data\mycode\sayedha-sandbox\mapped-folder"
+$dest = get-fullpath (join-path ".." "mapped-folder")
+
 New-Item -ItemType Directory -Path $dest -Force | Out-Null
 
 # Git
