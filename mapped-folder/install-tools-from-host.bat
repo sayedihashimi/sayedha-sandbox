@@ -46,9 +46,17 @@ cd c:\data\mycode
 "C:\Program Files\Git\bin\git.exe" clone https://github.com/sayedihashimi/RestaurantService.git
 
 rem add VS code extensions
-"C:\Program Files\Microsoft VS Code\bin\code" --install-extension ms-dotnettools.csharp --force
-"C:\Program Files\Microsoft VS Code\bin\code" --install-extension ms-dotnettools.csdevkit --force
-"C:\Program Files\Microsoft VS Code\bin\code" --install-extension GitHub.copilot --force
+cmd.exe /c start cmd.exe /k "C:\Program Files\Microsoft VS Code\bin\code" --install-extension ms-dotnettools.csharp --force
+echo "installed --install-extension ms-dotnettools.csharp"
+timeout /t 10 /nobreak >nul
+
+cmd.exe /c start cmd.exe /k "C:\Program Files\Microsoft VS Code\bin\code" --install-extension GitHub.copilot --force
+echo "installed --install-extension GitHub.copilot"
+timeout /t 10 /nobreak >nul
+
+cmd.exe /c start cmd.exe /k "C:\Program Files\Microsoft VS Code\bin\code" --install-extension ms-dotnettools.csdevkit --force
+echo "installed --install-extension ms-dotnettools.csdevkit"
+timeout /t 10 /nobreak >nul
 
 echo Done!
 pause
