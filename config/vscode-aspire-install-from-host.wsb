@@ -1,7 +1,7 @@
 <Configuration>
   <MappedFolders>
     <MappedFolder>
-      <HostFolder>C:\data\mycode\sayedha-sandbox\mapped-folder</HostFolder>
+      <HostFolder>UPDATE-USING-SCRIPT</HostFolder>
       <SandboxFolder>C:\setup</SandboxFolder>
       <ReadOnly>true</ReadOnly>
     </MappedFolder>
