@@ -1,5 +1,5 @@
 # apply the workaround to avoid long install times
-powershell -ExecutionPolicy Bypass -File C:\setup\PatchSandbox.ps1
+powershell -ExecutionPolicy Bypass -NoProfile -File C:\setup\PatchSandbox.ps1
 
 # install winget, from: https://learn.microsoft.com/en-us/windows/package-manager/winget/
 $progressPreference = 'silentlyContinue'

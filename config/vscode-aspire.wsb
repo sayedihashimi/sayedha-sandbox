@@ -7,6 +7,6 @@
     </MappedFolder>
   </MappedFolders>
   <LogonCommand>
-    <Command>cmd.exe /c start powershell -ExecutionPolicy Bypass -NoExit -File C:\setup\install-with-winget.ps1</Command>
+    <Command>cmd.exe /c start powershell -ExecutionPolicy Bypass -NoProfile -NoExit -File C:\setup\install-with-winget.ps1</Command>
   </LogonCommand>
 </Configuration>
