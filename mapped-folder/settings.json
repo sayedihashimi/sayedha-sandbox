@@ -1,4 +1,5 @@
 {
+    "CodeHome":"c:\\data\\mycode",
     "ReposToClone": ["https://github.com/sayedihashimi/RestaurantService.git"],
     "VSCodeExtensionsToInstall": [
         "ms-dotnettools.csharp",
