@@ -1,0 +1,69 @@
+{
+    "ReposToClone": ["https://github.com/sayedihashimi/RestaurantService.git"],
+    "VSCodeExtensionsToInstall": [
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.csdevkit",
+        "GitHub.copilot"
+    ],
+    "WindowsSettings":{
+        "EnableShowHiddenFiles": true,
+        "EnableShowFileExtensions": true
+    },
+    "AppsToInstall": [
+        {
+            "Name": "Installer perf patch",            
+            "Filename":"PatchSandbox.ps1",
+            "InstallCommand": "cmd.exe /c start powershell -ExecutionPolicy Bypass -NoProfile -File C:\\setup\\PatchSandbox.ps1",
+            "Enabled": true,
+            "WaitForCompletion": false
+        },
+        {
+            "Name": "Visual Studio Code",
+            "DownloadUrl":"https://code.visualstudio.com/sha/download?build=stable&os=win32-x64",
+            "Filename":"vscode.exe",
+            "InstallCommand": "vscode.exe /VERYSILENT /NORESTART /MERGETASKS=!runcode",
+            "Enabled": true,
+            "WaitForCompletion": true
+        },
+        {
+            "Name": "Git",
+            "DownloadUrl":"https://github.com/git-for-windows/git/releases/download/v2.49.0.windows.1/Git-2.49.0-64-bit.exe",
+            "Filename":"",
+            "InstallCommand": "git.exe /VERYSILENT /NORESTART",
+            "Enabled": true,
+            "WaitForCompletion": true
+        },
+        {
+            "Name": ".NET SDK 9",
+            "DownloadUrl":"https://builds.dotnet.microsoft.com/dotnet/Sdk/9.0.203/dotnet-sdk-9.0.203-win-x64.exe",
+            "Filename":"dotnet9.exe",
+            "InstallCommand": "dotnet9.exe /install /quiet /norestart",
+            "Enabled": true,
+            "WaitForCompletion": true
+        },
+        {
+            "Name":"PowerShell 7",
+            "DownloadUrl":"https://github.com/PowerShell/PowerShell/releases/download/v7.5.1/PowerShell-7.5.1-win-x64.msi",
+            "Filename":"pwsh.msi",
+            "InstallCommand":"msiexec /i pwsh.msi /qn",
+            "Enabled": true,
+            "WaitForCompletion": true
+        },
+        {
+            "Name":"Winget",
+            "DownloadUrl":"",
+            "Filename":"AppInstaller.msixbundle",
+            "InstallCommand":"Add-AppxPackage -Path AppInstaller.msixbundle",
+            "Enabled": false,
+            "WaitForCompletion": true
+        },
+        {
+            "Name":"ConEmu",
+            "DownloadUrl":"https://github.com/Maximus5/ConEmu/releases/download/v23.07.24/ConEmuSetup.230724.exe",
+            "Filename":"conemusetup.exe",
+            "InstallCommand":"ConEmuSetup.exe /p:x64,adm /qr /norestart",
+            "Enabled": false,
+            "WaitForCompletion": true
+        }
+    ]
+}
