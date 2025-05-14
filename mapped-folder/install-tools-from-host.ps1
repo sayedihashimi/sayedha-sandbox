@@ -64,6 +64,8 @@ function Update-WindowsSettings{
             'Enabling show file extensions' | Write-Output
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideFileExt -Value 0
         }
+
+        '' | Write-Output
     }
 }
 
@@ -80,12 +82,19 @@ function Install-VSCodeExtensions{
         }
         $vscExtensions = $settings.VSCodeExtensionsToInstall
         if($vscExtensions){
+            'Installing VSCode extensions' | Write-Output
             foreach($extension in $vscExtensions){
-                'Installing VSCode extensions' | Write-Output
-                # cmd.exe /c start cmd.exe /k "C:\Program Files\Microsoft VS Code\bin\code" --install-extension ms-dotnettools.csharp --force
-                $argList = '/k "C:\Program Files\Microsoft VS Code\bin\code" --install-extension {0} --force' -f $extension
-                Start-Process -FilePath "cmd.exe" -ArgumentList $argList -NoNewWindow -Wait
+                $extName = $extension.Name
+                $enabled = $extension.Enabled
+                if($enabled -eq $true){
+                    # cmd.exe /c start cmd.exe /k "C:\Program Files\Microsoft VS Code\bin\code" --install-extension ms-dotnettools.csharp --force
+                    $argList = '/k "C:\Program Files\Microsoft VS Code\bin\code" --install-extension {0} --force' -f $extName
+                    Start-Process -FilePath "cmd.exe" -ArgumentList $argList -NoNewWindow -Wait
+                }
             }
+        }
+        else{
+            'No VSCode extensions to install' | Write-Output
         }
     }
 }

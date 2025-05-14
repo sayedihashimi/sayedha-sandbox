@@ -8,6 +8,7 @@
   </MappedFolders>
   <LogonCommand>
     <Command>cmd.exe /c start cmd.exe /k C:\setup\install-tools-from-host.bat</Command>
-    <!-- <Command>powershell -ExecutionPolicy Bypass -File C:\setup\PatchSandbox.ps1</Command> -->
+    <!-- using cmd.exe to start PowerShell, otherwise the PS window doesn't appear -->
+    <Command>cmd.exe /c start powershell -NoExit -ExecutionPolicy Bypass -File C:\setup\install-tools-from-host.ps1</Command>
   </LogonCommand>
 </Configuration>

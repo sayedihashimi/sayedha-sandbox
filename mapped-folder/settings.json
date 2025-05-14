@@ -2,9 +2,30 @@
     "CodeHome":"c:\\data\\mycode",
     "ReposToClone": ["https://github.com/sayedihashimi/RestaurantService.git"],
     "VSCodeExtensionsToInstall": [
-        "ms-dotnettools.csharp",
-        "ms-dotnettools.csdevkit",
-        "GitHub.copilot"
+        {
+            "Name":"ms-dotnettools.csharp",
+            "Enabled": true
+        },
+        {
+            "Name":"ms-dotnettools.csdevkit",
+            "Enabled": true
+        },
+        {
+            "Name":"GitHub.copilot",
+            "Enabled": true
+        },
+        {
+            "Name":"ms-vscode.PowerShell",
+            "Enabled": true
+        },
+        {
+            "Name":"yzhang.markdown-all-in-one",
+            "Enabled": true
+        },
+        {
+            "Name":"humao.rest-client",
+            "Enabled": true
+        }
     ],
     "WindowsSettings":{
         "EnableShowHiddenFiles": true,
